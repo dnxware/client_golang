@@ -1,4 +1,4 @@
-module github.com/prometheus/client_golang
+module github.com/dnxware/client_golang
 
 require (
 	github.com/beorn7/perks v1.0.0
@@ -6,8 +6,8 @@ require (
 	github.com/json-iterator/go v1.1.6
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
-	github.com/prometheus/client_model v0.0.0-20190129233127-fd36f4220a90
-	github.com/prometheus/common v0.4.1
-	github.com/prometheus/procfs v0.0.0-20190522114515-bc1a522cf7b1
+	github.com/dnxware/client_model v0.0.0-20190129233127-fd36f4220a90
+	github.com/dnxware/common v0.4.1
+	github.com/dnxware/procfs v0.0.0-20190522114515-bc1a522cf7b1
 	github.com/stretchr/testify v1.3.0 // indirect
 )

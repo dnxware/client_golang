@@ -1,4 +1,4 @@
-// Copyright 2015 The Prometheus Authors
+// Copyright 2015 The dnxware Authors
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -12,7 +12,7 @@
 // limitations under the License.
 
 // A simple example exposing fictional RPC latencies with different types of
-// random distributions (uniform, normal, and exponential) as Prometheus
+// random distributions (uniform, normal, and exponential) as dnxware
 // metrics.
 package main
 
@@ -24,8 +24,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/dnxware/client_golang/dnxware"
+	"github.com/dnxware/client_golang/dnxware/promhttp"
 )
 
 var (
@@ -40,8 +40,8 @@ var (
 	// Create a summary to track fictional interservice RPC latencies for three
 	// distinct services with different latency distributions. These services are
 	// differentiated via a "service" label.
-	rpcDurations = prometheus.NewSummaryVec(
-		prometheus.SummaryOpts{
+	rpcDurations = dnxware.NewSummaryVec(
+		dnxware.SummaryOpts{
 			Name:       "rpc_durations_seconds",
 			Help:       "RPC latency distributions.",
 			Objectives: map[float64]float64{0.5: 0.05, 0.9: 0.01, 0.99: 0.001},
@@ -52,17 +52,17 @@ var (
 	// distribution. The buckets are targeted to the parameters of the
 	// normal distribution, with 20 buckets centered on the mean, each
 	// half-sigma wide.
-	rpcDurationsHistogram = prometheus.NewHistogram(prometheus.HistogramOpts{
+	rpcDurationsHistogram = dnxware.NewHistogram(dnxware.HistogramOpts{
 		Name:    "rpc_durations_histogram_seconds",
 		Help:    "RPC latency distributions.",
-		Buckets: prometheus.LinearBuckets(*normMean-5**normDomain, .5**normDomain, 20),
+		Buckets: dnxware.LinearBuckets(*normMean-5**normDomain, .5**normDomain, 20),
 	})
 )
 
 func init() {
-	// Register the summary and the histogram with Prometheus's default registry.
-	prometheus.MustRegister(rpcDurations)
-	prometheus.MustRegister(rpcDurationsHistogram)
+	// Register the summary and the histogram with dnxware's default registry.
+	dnxware.MustRegister(rpcDurations)
+	dnxware.MustRegister(rpcDurationsHistogram)
 }
 
 func main() {

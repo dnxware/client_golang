@@ -1,4 +1,4 @@
-// Copyright 2015 The Prometheus Authors
+// Copyright 2015 The dnxware Authors
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -73,7 +73,7 @@ var DefaultRoundTripper http.RoundTripper = &http.Transport{
 
 // Config defines configuration parameters for a new client.
 type Config struct {
-	// The address of the Prometheus to connect to.
+	// The address of the dnxware to connect to.
 	Address string
 
 	// RoundTripper is used by the Client to drive HTTP requests. If not

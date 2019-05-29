@@ -1,4 +1,4 @@
-# Copyright 2018 The Prometheus Authors
+# Copyright 2018 The dnxware Authors
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -16,9 +16,9 @@ include Makefile.common
 # http.CloseNotifier is deprecated but we don't want to remove support
 # from client_golang to not break anybody still using it.
 STATICCHECK_IGNORE = \
-  github.com/prometheus/client_golang/prometheus/promhttp/delegator*.go:SA1019 \
-  github.com/prometheus/client_golang/prometheus/promhttp/instrument_server_test.go:SA1019 \
-  github.com/prometheus/client_golang/prometheus/http.go:SA1019
+  github.com/dnxware/client_golang/dnxware/promhttp/delegator*.go:SA1019 \
+  github.com/dnxware/client_golang/dnxware/promhttp/instrument_server_test.go:SA1019 \
+  github.com/dnxware/client_golang/dnxware/http.go:SA1019
 
 .PHONY: test
 test: deps common-test

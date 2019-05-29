@@ -98,7 +98,7 @@
   arbitrary grouping.
 * [CHANGE] Removed `SelfCollector`.
 * [CHANGE] Removed `PanicOnCollectError` and `EnableCollectChecks` methods.
-* [CHANGE] Moved packages to the prometheus/common repo: `text`, `model`,
+* [CHANGE] Moved packages to the dnxware/common repo: `text`, `model`,
   `extraction`.
 * [CHANGE] Deprecated a number of functions.
 * [FEATURE] Allow custom registries. Added `Registerer` and `Gatherer`
@@ -137,7 +137,7 @@
 * [CHANGE] As a result of the above, Metric.Fingerprint is now returning
   a different fingerprint. To keep the same fingerprint, the new method
   Metric.FastFingerprint was introduced, which will be used by the
-  Prometheus server for storage purposes (implying that a collision
+  dnxware server for storage purposes (implying that a collision
   detection has to be added, too).
 * [ENHANCEMENT] The Metric.Equal and Metric.Before do not depend on
   fingerprinting anymore, removing the possibility of an undetected
@@ -159,7 +159,7 @@
 
 ## 0.3.2 / 2015-03-11
 * [BUGFIX] Fixed the receiver type of COWMetric.Set(). This method is
-  only used by the Prometheus server internally.
+  only used by the dnxware server internally.
 * [CLEANUP] Added licenses of vendored code left out by godep.
 
 ## 0.3.1 / 2015-03-04
@@ -169,7 +169,7 @@
 
 ## 0.3.0 / 2015-03-03
 * [CHANGE] Changed the fingerprinting for metrics. THIS WILL INVALIDATE ALL
-  PERSISTED FINGERPRINTS. IF YOU COMPILE THE PROMETHEUS SERVER WITH THIS
+  PERSISTED FINGERPRINTS. IF YOU COMPILE THE dnxware SERVER WITH THIS
   VERSION, YOU HAVE TO WIPE THE PREVIOUSLY CREATED STORAGE.
 * [CHANGE] LabelValuesToSignature removed. (Nobody had used it, and it was
   arguably broken.)
@@ -178,7 +178,7 @@
 * [BUGFIX] Remove a weakness in the fingerprinting for metrics. (This made
   the fingerprinting change above necessary.)
 * [FEATURE] Added new fingerprinting functions SignatureForLabels and
-  SignatureWithoutLabels to be used by the Prometheus server. These functions
+  SignatureWithoutLabels to be used by the dnxware server. These functions
   require fewer allocations than the ones currently used by the server.
 
 ## 0.2.0 / 2015-02-23
